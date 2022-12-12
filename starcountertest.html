@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="startTime()">
+
+    <h2>star counter</h2>
+
+    <div id="str"></div>
+
+    <script>
+        function numberWithCommas(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function startTime() {
+            let dt = new Date();
+            let secs = dt.getSeconds() + (60 * (dt.getMinutes() + (60 * dt.getHours())));
+            let stars = (3182 * secs);
+            let starsc = numberWithCommas(stars);
+            document.getElementById('str').innerHTML = starsc + " stars have died today.";
+            setTimeout(startTime, 1000);
+        }
+
+    </script>
+
+</body>
+
+</html>
